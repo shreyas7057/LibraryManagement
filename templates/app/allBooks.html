@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}View Books{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">List Of All Books</h1><br>
+{% include 'includes/messages.html' %}
+<div class="row row-cols-4 row-cols-md-4 g-4">
+    {% for book in books %}
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.name }}">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'detailBook' book.id %}">{{ book.name }}</a></h5>
+          <p class="card-text">Author: {{ book.author.name }}</p>
+          <p class="card-text">ISBN No: {{ book.isbn_num }}</p>
+          <p class="card-text">Quantity: {{ book.quantity }}</p>
+          <p class="card-text">Category: {{ book.category }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+{% endblock content %}

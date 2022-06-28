@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}All Authors{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Author</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Author Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email_id" placeholder="Author Email Id">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="phone_num" placeholder="Author Mobile">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-success" value="Add Author">
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

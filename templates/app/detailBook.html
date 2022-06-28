@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.name }}{% endblock title %}
+
+{% block content %}
+
+<h1 class="text-center">Book Name: {{ book.name }}</h1>
+
+<div class="col-md-6">
+    <div class="row">
+        <img src="{{ book.image.url }}" class="img-fluid">
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Author Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">ISBN NO.</th>
+        <th scope="col">Quantity</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>{{ book.author.name }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.isbn_num }}</td>
+        <td>{{ book.quantity }}</td>
+        <td><a href="{% url 'editBook' book.id %}">Update</a>/<a href="{% url 'deleteBook' book.id %}">Delete</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+{% endblock content %}
